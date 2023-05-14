@@ -8,7 +8,15 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id = "myPet"
-          class = "spring_intro.Cat">
+          class = "spring_intro.Dog">
+    </bean>
+
+    <bean id = "myPerson"
+        class="spring_intro.Person"
+    >
+        <property name="pet" ref="myPet"/>
+        <property name="surname" value="Yelemess"/>
+        <property name="age" value="19"/>
     </bean>
 
 </beans>
