@@ -1,3 +1,5 @@
+package spring_intro;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import spring_intro.Dog;
 
@@ -9,18 +11,18 @@ public class Test4 {
         // after Spring Container read configuration file
 
         // - common for all, which will call him in Spring Container
-        Dog myDog = context.getBean("myPet", Dog.class);
-        myDog.setName("Aqtos");
-        Dog yourDog = context.getBean("myPet", Dog.class);
-        yourDog.setName("Belka");
-//
-        System.out.println(myDog.getName());
-        System.out.println(yourDog.getName());
-//
-        System.out.println("variables link into the same objects?" + (myDog == yourDog));
-        System.out.println(myDog);
-       System.out.println(yourDog);
-       context.close();
+//        Dog myDog = context.getBean("myPet", Dog.class);
+//        myDog.setName("Aqtos");
+//        Dog yourDog = context.getBean("myPet", Dog.class);
+//        yourDog.setName("Belka");
+////
+//        System.out.println(myDog.getName());
+//        System.out.println(yourDog.getName());
+////
+//        System.out.println("variables link into the same objects?" + (myDog == yourDog));
+//        System.out.println(myDog);
+//       System.out.println(yourDog);
+//       context.close();
         // - suitable for stateless objects
 
 

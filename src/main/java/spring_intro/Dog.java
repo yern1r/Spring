@@ -1,15 +1,15 @@
 package spring_intro;
 
 public class Dog implements Pet {
-    private String name;
+    //private String name;
 
-    public String getName() {
-        return name;
-    }
+//    public String getName() {
+//        return name;
+//    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+//    public void setName(String name) {
+//        this.name = name;
+//    }
 
     public Dog() {
         System.out.println("dog bean is created");
@@ -19,4 +19,13 @@ public class Dog implements Pet {
     public void say(){
         System.out.println("Gav-Gav");
     }
+
+    public void init(){
+        System.out.println("Class Dog : init method");
+    }
+
+    public void destroy(){
+        System.out.println("Class Dog : destroy method");
+    }
+
 }
