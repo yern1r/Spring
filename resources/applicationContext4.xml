@@ -9,11 +9,8 @@
 
 
 
-    <bean id = "myPet"
-            class = "spring_intro.Dog"
-            scope="singleton"
-    >
-    </bean>
+    <context:component-scan base-package="spring_intro"/>
+
 
 
 
