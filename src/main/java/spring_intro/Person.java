@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component ("personBean")
+//@Component ("personBean")
 public class Person {
 //    @Autowired
 //    @Qualifier("catBean")
@@ -24,13 +24,18 @@ public class Person {
     // if there is no bean , then throw exception
     // if there is more than , also throw exception
 
-    @Autowired
-        public Person(@Qualifier("catBean") Pet pet) {
-          System.out.println("person bean is created");
-        this.pet = pet;
-     }
+//    @Autowired
+//        public Person(@Qualifier("catBean") Pet pet) {
+//          System.out.println("person bean is created");
+//        this.pet = pet;
+//     }
         //     in configure file -> : <constructor-arg ref="myPet"></constructor-arg>
 
+
+    public Person(Pet pet) {
+        System.out.println("person bean is created");
+        this.pet = pet;
+    }
 
 //    public Person(){
 //        System.out.println("Person bean is created");
