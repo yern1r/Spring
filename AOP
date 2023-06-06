@@ -1,0 +1,17 @@
+AOP - paradigm of programming, based on dividing the main and serv functions.
+
+Serv functional writes into Aspect classes
+Aspect class uses cross-cutting logic
+
+cross-cutting logic:
+-loging/security check/обработка транзакций/обработка исключений/Кэширование
+
+Before the main methods execution, aspect class will be executed
+
+Advantages;
+- focus on one or more обособленных классах. It allows to easily change
+- It is easy to add new cross-cutting logicfor our main code because of configuration aspects
+- business code will be less and clear, after using cross-cutting logic
+
+disadvantage:
+- More time for work , execution of aspects
