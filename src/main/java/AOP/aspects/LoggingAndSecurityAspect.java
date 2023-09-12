@@ -9,6 +9,13 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class LoggingAndSecurityAspect {
 
+
+
+
+
+
+
+
 //    @Before("execution(public void getBook(AOP.Book))")
 //    @Before("execution(public void getBook(String))")
     //@Before("execution(public void getBook())")
@@ -27,16 +34,47 @@ public class LoggingAndSecurityAspect {
 //    }
 
 
-    @Pointcut("execution( * get*())")
-    private void allGetMethods(){};
 
-    @Before("allGetMethods()")
-    public void beforeGetLoggingAdvice(){
-        System.out.println("beforeGetLoggingAdvice : attempt to get book/magazine ");
-    }
 
-    @Before("allGetMethods()")
-    public void beforeGetSecurityAdvice(){
-        System.out.println("beforeGetSecurityAdvice : checking access for getting book/magazine ");
-    }
+
+
+//    @Pointcut("execution(* AOP.UniLibrary.get*())")
+//    private void allGetMethodsFromUniLibrary(){}
+//
+//    @Pointcut("execution(* AOP.UniLibrary.return*())")
+//    private void  allReturnMethodsFromUniLibrary(){}
+//
+//
+//    @Pointcut("allGetMethodsFromUniLibrary() || allReturnMethodsFromUniLibrary()" )
+//    private void allGetAndReturnMethodsFromUniLibrary(){}
+//
+//    @Before("allGetMethodsFromUniLibrary()")
+//    public void beforeGetLoggingAdvice(){
+//        System.out.println("beforeGetLoggingAdvice: writing Log #1");
+//    }
+//
+//    @Before("allReturnMethodsFromUniLibrary()")
+//    public void beforeReturnLoggingAdvise(){
+//        System.out.println("beforeReturnLoggingAdvise : writing Log #2");
+//    }
+//
+//    @Before("allGetAndReturnMethodsFromUniLibrary()")
+//    public void beforeGetAndReturnMethodsFromUniLibrary(){
+//        System.out.println("beforeGetAndReturnMethodsFromUniLibrary : writing Log #3" );
+//    }
+
+
+@Pointcut("execution(* AOP.UniLibrary.*(..))")
+    private void allMethodsFromUniLibrary(){}
+
+@Pointcut("execution(public void AOP.UniLibrary.returnMagazine())")
+private void returnMagazineFromUniLibrary(){}
+
+@Pointcut("allMethodsFromUniLibrary() && !returnMagazineFromUniLibrary()")
+    private void allMethodsExpectReturnMagazineFromUniLibrary(){}
+
+@Before("allMethodsExpectReturnMagazineFromUniLibrary()")
+    public void beforeMethodsExpectReturnMagazineFromUniLibrary(){
+    System.out.println("beforeMethodsExpectReturnMagazineFromUniLibrary : log #10");
+}
 }

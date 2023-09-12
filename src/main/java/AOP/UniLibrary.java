@@ -21,7 +21,20 @@ public class UniLibrary  extends AbstractLibrary{
     }
 
     public void getMagazine() {
-        System.out.println("We are taking a mahazine from University Library");
+        System.out.println("We are taking a magazine from University Library");
     }
+
+    public void returnMagazine() {
+        System.out.println("We are returning a magazine to University Library");
+    }
+
+    public void addBook( ) {
+        System.out.println("We are adding a book to University Library "  );
+    }
+
+    public void addMagazine() {
+        System.out.println("We are adding a magazine to University Library");
+    }
+
 
 }
