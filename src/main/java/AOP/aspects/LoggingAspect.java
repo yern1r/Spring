@@ -2,19 +2,13 @@ package AOP.aspects;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class LoggingAndSecurityAspect {
-
-
-
-
-
-
-
+@Order(10)
+public class LoggingAspect {
 
 //    @Before("execution(public void getBook(AOP.Book))")
 //    @Before("execution(public void getBook(String))")
@@ -63,18 +57,28 @@ public class LoggingAndSecurityAspect {
 //        System.out.println("beforeGetAndReturnMethodsFromUniLibrary : writing Log #3" );
 //    }
 
+//
+//@Pointcut("execution(* AOP.UniLibrary.*(..))")
+//    private void allMethodsFromUniLibrary(){}
+//
+//@Pointcut("execution(public void AOP.UniLibrary.returnMagazine())")
+//private void returnMagazineFromUniLibrary(){}
+//
+//@Pointcut("allMethodsFromUniLibrary() && !returnMagazineFromUniLibrary()")
+//    private void allMethodsExpectReturnMagazineFromUniLibrary(){}
+//
+//@Before("allMethodsExpectReturnMagazineFromUniLibrary()")
+//    public void beforeMethodsExpectReturnMagazineFromUniLibrary(){
+//    System.out.println("beforeMethodsExpectReturnMagazineFromUniLibrary : log #10");
+//}
 
-@Pointcut("execution(* AOP.UniLibrary.*(..))")
-    private void allMethodsFromUniLibrary(){}
 
-@Pointcut("execution(public void AOP.UniLibrary.returnMagazine())")
-private void returnMagazineFromUniLibrary(){}
 
-@Pointcut("allMethodsFromUniLibrary() && !returnMagazineFromUniLibrary()")
-    private void allMethodsExpectReturnMagazineFromUniLibrary(){}
 
-@Before("allMethodsExpectReturnMagazineFromUniLibrary()")
-    public void beforeMethodsExpectReturnMagazineFromUniLibrary(){
-    System.out.println("beforeMethodsExpectReturnMagazineFromUniLibrary : log #10");
-}
+    @Before("AOP.aspects.MyPointCuts.allGetMethods()")
+    public void beforeGetLoggingAdvice(){
+        System.out.println("beforeGetLoggingAdvice : logging + attempt to get a magazine/book");
+    }
+
+
 }
