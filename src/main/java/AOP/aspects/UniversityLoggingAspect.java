@@ -2,6 +2,7 @@ package AOP.aspects;
 
 import AOP.Student;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -16,19 +17,24 @@ public class UniversityLoggingAspect {
         System.out.println("beforeGetStudentsLoggingAdvice : logging of getting -> list of students before method getStudents" );
     }
 
-    @AfterReturning(pointcut = "execution(* getStudents())",
-            returning = "students")
-    public void afterGetStudentsLoggingAdvice(List<Student> students){
+//    @AfterReturning(pointcut = "execution(* getStudents())",
+//            returning = "students")
+//    public void afterGetStudentsLoggingAdvice(List<Student> students){
+//
+//        Student firstStudent = students.get(0);
+//        String nameSurname = firstStudent.getNameStudent();
+//        nameSurname = " Mr  " + nameSurname;
+//        firstStudent.setNameStudent(nameSurname);
+//
+//        double avgGrade = firstStudent.getAvgGrade();
+//        avgGrade = avgGrade+0.5;
+//        firstStudent.setAvgGrade(avgGrade);
+//
+//        System.out.println("afterGetStudentsLoggingAdvice : logging of getting -> list of students after method getStudents" );
+//    }
 
-        Student firstStudent = students.get(0);
-        String nameSurname = firstStudent.getNameStudent();
-        nameSurname = " Mr  " + nameSurname;
-        firstStudent.setNameStudent(nameSurname);
-
-        double avgGrade = firstStudent.getAvgGrade();
-        avgGrade = avgGrade+0.5;
-        firstStudent.setAvgGrade(avgGrade);
-
-        System.out.println("afterGetStudentsLoggingAdvice : logging of getting -> list of students after method getStudents" );
+    @AfterThrowing(pointcut = "execution(* getStudents())", throwing = "exception")
+    public void afterThrowingGetStudentsLoggingAdvice(Throwable exception){
+        System.out.println("afterThrowingGetStudentsLoggingAdvice: logging of throwing exception --> " + exception);
     }
 }

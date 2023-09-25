@@ -20,6 +20,9 @@ public class University {
     }
 
     public List<Student> getStudents(){
+        System.out.println("The start of working method getStudents");
+        System.out.println(students.get(3));
+
         System.out.println(" Information about getStudents  : ");
         System.out.println(students);
         return students;
