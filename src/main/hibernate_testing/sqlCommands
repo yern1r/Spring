@@ -1,0 +1,15 @@
+DROP TABLE employees;
+
+CREATE TABLE employees (
+    employer_id serial PRIMARY KEY,
+    name varchar(15) DEFAULT NULL,
+    surname varchar(20) DEFAULT NULL,
+	department varchar(15) DEFAULT NULL,
+	salary int DEFAULT NULL
+)
+
+SELECT * FROM employees;
+
+CREATE SEQUENCE public.employer_id_seq;
+
+ALTER TABLE public.employees ALTER COLUMN employer_id SET DEFAULT nextval('public.employer_id_seq'::regclass);

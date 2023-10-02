@@ -1,14 +1,14 @@
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
+
 @Table(name = "employees")
 public class Employee {
 
     @Id
-    @Column(name = "employee_id")
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    //@GeneratedValue (strategy = GenerationType.SEQUENCE)
+    @Column(name = "employer_id")
     private int id;
 
     @Column(name = "name")
