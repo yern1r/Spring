@@ -10,14 +10,14 @@ public class Test1 {
                 .buildSessionFactory();
         try {
             Session session = factory.getCurrentSession();
-            Employee emp = new Employee("Aleksandr", "Smirnov",
-                    "Security", 200);
+            Employee emp = new Employee("Maxim", "Samadorov",
+                    "HR", 340);
 
             session.beginTransaction();
             session.save(emp);
             session.getTransaction().commit();
 
-            System.out.println("success!!");
+            System.out.println("success!! \nadded new data " + emp);
         }finally {
             factory.close();
         }
