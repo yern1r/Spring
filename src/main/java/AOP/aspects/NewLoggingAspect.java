@@ -17,7 +17,7 @@ public class NewLoggingAspect {
 //        long begin = System.currentTimeMillis();
         Object targetMethodResult = null;
         try{
-             targetMethodResult = proceedingJoinPoint.proceed();
+            targetMethodResult = proceedingJoinPoint.proceed();
         }catch (Exception e){
             System.out.println("aroundReturnBookLoggingAdvice: logging of throwing exception--> " + e);
             throw e;
