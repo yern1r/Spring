@@ -25,7 +25,7 @@ public class Employee {
     private int salary;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "detail_id")
+    @JoinColumn(name = "fk_detail_id")
     private Detail empDetail;
 
     public Employee() {
@@ -41,7 +41,6 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", department='" + department + '\'' +
@@ -87,5 +86,13 @@ public class Employee {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public Detail getEmpDetail() {
+        return empDetail;
+    }
+
+    public void setEmpDetail(Detail empDetail) {
+        this.empDetail = empDetail;
     }
 }

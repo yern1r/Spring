@@ -15,6 +15,10 @@ CREATE SEQUENCE public.employer_id_seq;
 
 ALTER TABLE public.employees ALTER COLUMN employer_id SET DEFAULT nextval('public.employer_id_seq'::regclass);
 
+//--------auto increment for another table which will be synch-----------//
+ALTER TABLE public.details ALTER COLUMN detail_id SET DEFAULT nextval('public.employer_id_seq');
+
+
 //---------------new table --------------//
 CREATE TABLE details (
     details_id serial PRIMARY KEY,
@@ -23,9 +27,7 @@ CREATE TABLE details (
     email varchar(25)
 )
 
-CREATE SEQUENCE public.details_id_seq;
 
-ALTER TABLE public.details ALTER COLUMN details_id SET DEFAULT nextval('public.details_id_seq'::regclass);
 
 //-----------foreign key--------------//
 ALTER TABLE employees
