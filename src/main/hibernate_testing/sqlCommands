@@ -10,6 +10,37 @@ CREATE TABLE employees (
 
 SELECT * FROM employees;
 
+//--------------auto increment-----------//
 CREATE SEQUENCE public.employer_id_seq;
 
 ALTER TABLE public.employees ALTER COLUMN employer_id SET DEFAULT nextval('public.employer_id_seq'::regclass);
+
+//---------------new table --------------//
+CREATE TABLE details (
+    details_id serial PRIMARY KEY,
+    city varchar(15),
+    phone_number varchar(15),
+    email varchar(25)
+)
+
+CREATE SEQUENCE public.details_id_seq;
+
+ALTER TABLE public.details ALTER COLUMN details_id SET DEFAULT nextval('public.details_id_seq'::regclass);
+
+//-----------foreign key--------------//
+ALTER TABLE employees
+ADD CONSTRAINT fk_detail_id FOREIGN KEY (fk_detail_id) REFERENCES details(detail_id);
+
+//--------adding new column---------//
+ALTER TABLE employees
+ADD COLUMN fk_detailes_id int;
+
+//---------rename table -----------//
+ALTER TABLE detailes
+RENAME TO details;
+
+//----------rename column--------//
+ALTER TABLE details
+RENAME COLUMN detailes_id TO detail_id;
+
+

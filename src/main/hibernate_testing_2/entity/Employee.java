@@ -1,3 +1,5 @@
+package entity;
+
 import javax.persistence.*;
 
 @Entity
@@ -22,6 +24,9 @@ public class Employee {
     @Column(name = "salary")
     private int salary;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "detail_id")
+    private Detail empDetail;
 
     public Employee() {
     }
