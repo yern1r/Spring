@@ -1,8 +1,8 @@
-import entity.Detail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import entity.Employee;
+import entity.Detail;
 
 public class TestTwo {
     public static void main(String[] args) {

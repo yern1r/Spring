@@ -1,5 +1,7 @@
 package entity;
 
+import entity.Employee;
+
 import javax.persistence.*;
 
 @Entity
@@ -22,7 +24,7 @@ public class Detail {
 
     @OneToOne(mappedBy = "empDetail" ,
               cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
-    private Employee employee;
+    private entity.Employee employee;
 
     public Detail() {
     }
@@ -34,7 +36,7 @@ public class Detail {
         this.email = email;
     }
 
-    public Employee getEmployee() {
+    public entity.Employee getEmployee() {
         return employee;
     }
 
