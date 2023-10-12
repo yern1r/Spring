@@ -12,38 +12,54 @@ public class Test_1 {
                 .addAnnotatedClass(Departament.class)
                 .buildSessionFactory();
         try {
+//            Session session = factory.getCurrentSession();
+
+
+//            Departament departament = new Departament("Sales",
+//                    600 , 1400);
+//
+//            Employee employer1 = new Employee("Anton",
+//                    "Serik", 900);
+//
+//            Employee employer2 = new Employee("Aibek",
+//                    "Melsov", 1400);
+//
+//            Employee employer3 = new Employee("Gulbarshyn",
+//                    "Melsova", 600);
+//
+//            departament.addEmployeeToDepartment(employer1);
+//            departament.addEmployeeToDepartment(employer2);
+//            departament.addEmployeeToDepartment(employer3);
+//
+//            session.beginTransaction();
+//
+//            session.save(departament);
+//
+//            session.getTransaction().commit();
+//
+//            System.out.println("success!! \nadded new data ");
+
+            //**************************************************//
             Session session = factory.getCurrentSession();
-
-
-//            Departament departament1 = new Departament("IT",
-//                    300 , 1200);
-//
-//            Employee employer11 = new Employee("Bagdat",
-//                    "Serik", 365);
-//
-//            Employee employer22 = new Employee("Arsen",
-//                    "Melsova", 400);
-
-
-            Departament departament = new Departament("HR",
-                    300 , 1200);
-
-            Employee employer1 = new Employee("Diana",
-                    "Serik", 365);
-
-            Employee employer2 = new Employee("Gulnaz",
-                    "Melsova", 400);
-
-            departament.addEmployeeToDepartment(employer1);
-            departament.addEmployeeToDepartment(employer2);
 
             session.beginTransaction();
 
-            session.save(departament);
+            System.out.println("Get department");
+            Departament departament = session.get(Departament.class , 16);
+
+            System.out.println("Show department");
+            System.out.println(departament);
+
+//            for lazy fetch
+//            System.out.println("loading our employees");
+//            departament.getEmployeeList().get(0);
 
             session.getTransaction().commit();
-
             System.out.println("success!! \nadded new data ");
+
+            System.out.println("Show employees of department ");
+            System.out.println(departament.getEmployeeList());
+
         }finally {
             factory.close();
         }

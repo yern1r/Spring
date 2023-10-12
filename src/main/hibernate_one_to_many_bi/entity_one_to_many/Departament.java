@@ -23,8 +23,10 @@ public class Departament {
     @Column(name = "max_salary")
     private int maxSalary;
 
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH , CascadeType.DETACH, CascadeType.MERGE},
-            mappedBy = "departament")
+//    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH , CascadeType.DETACH, CascadeType.MERGE},
+    @OneToMany(cascade = CascadeType.ALL ,
+            mappedBy = "departament",
+            fetch =FetchType.EAGER )
     private List<Employee> employeeList;
 
     public Departament() {
