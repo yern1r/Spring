@@ -1,5 +1,6 @@
 package entity;
 
+import entity.Detail;
 import javax.persistence.*;
 
 @Entity
@@ -26,7 +27,7 @@ public class Employee {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_detail_id")
-    private Detail empDetail;
+    private entity.Detail empDetail;
 
     public Employee() {
     }
@@ -88,7 +89,7 @@ public class Employee {
         this.salary = salary;
     }
 
-    public Detail getEmpDetail() {
+    public entity.Detail getEmpDetail() {
         return empDetail;
     }
 

@@ -14,6 +14,17 @@ public class Test_1 {
         try {
             Session session = factory.getCurrentSession();
 
+
+//            Departament departament1 = new Departament("IT",
+//                    300 , 1200);
+//
+//            Employee employer11 = new Employee("Bagdat",
+//                    "Serik", 365);
+//
+//            Employee employer22 = new Employee("Arsen",
+//                    "Melsova", 400);
+
+
             Departament departament = new Departament("HR",
                     300 , 1200);
 

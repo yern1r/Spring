@@ -1,5 +1,7 @@
 package entity;
 
+import entity.Employee;
+
 import javax.persistence.*;
 
 @Entity
