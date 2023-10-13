@@ -73,14 +73,59 @@ public class TestingOne {
 
             //*******************************************//
 
+//            session = factory.getCurrentSession();
+//
+//            session.beginTransaction();
+//
+//            Child child = session.get(Child.class , 4);
+//
+//            System.out.println(child);
+//            System.out.println(child.getSectionsList());
+//
+//
+//            session.getTransaction().commit();
+//            System.out.println("Done");
+            //****************deleting**********************//
+//            session = factory.getCurrentSession();
+//
+//            session.beginTransaction();
+//
+//            Section section = session.get(Section.class , 5);
+//
+//            System.out.println("we are gonna remove" + section);
+//            session.delete(section);
+//
+//
+//            session.getTransaction().commit();
+//            System.out.println("Done");
+            //****************Persist saving**********************//
+//            session = factory.getCurrentSession();
+//
+//            Section section1 = new Section("Cybersport");
+//
+//            Child child1 = new Child("Grealish ", 11);
+//            Child child2 = new Child("Greasha ", 12);
+//            Child child3 = new Child("Grealishbek ", 13);
+//
+//            section1.addChildToSection(child1);
+//            section1.addChildToSection(child2);
+//            section1.addChildToSection(child3);
+//
+//            session.beginTransaction();
+//
+//            session.persist(section1);
+//
+//            session.getTransaction().commit();
+//            System.out.println("Done");
+            //****************deleting child*******************//
             session = factory.getCurrentSession();
-
+//
             session.beginTransaction();
 
-            Child child = session.get(Child.class , 4);
+            Child child = session.get(Child.class , 3);
 
-            System.out.println(child);
-            System.out.println(child.getSectionsList());
+            System.out.println("we are gonna remove" + child);
+            session.delete(child);
 
 
             session.getTransaction().commit();
